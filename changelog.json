@@ -1,0 +1,93 @@
+[
+  {
+    "id": "006",
+    "date": "2026-06-18",
+    "title": "Inicio formal del Plan de acción Sistemas 4.0",
+    "description": "Se formaliza la web de seguimiento del proyecto. Norte estratégico, estado de fases y changelog centralizado en un solo lugar.",
+    "categories": ["estrategia"],
+    "steps": [
+      "Se crea la página de seguimiento del proyecto",
+      "Secciones: norte estratégico, estado actual y changelog",
+      "Integración con IA para generar entradas desde texto libre"
+    ],
+    "note": null,
+    "author": "Dani"
+  },
+  {
+    "id": "005",
+    "date": "2026-06-12",
+    "title": "Se descarta la agencia de bot por duplicación de CRM",
+    "description": "La propuesta de la agencia de bot conversacional incluía desarrollar un CRM propio que competiría directamente con Zoho Enterprise ya en uso. Se descartó.",
+    "categories": ["crm", "estrategia"],
+    "steps": [
+      "Propuesta: USD 9.500 para 5 unidades de negocio (plataforma + implementación por marca)",
+      "Problema central: la agencia quería construir su propia base de datos de leads y CRM",
+      "Decisión: solo tiene valor el bot conversacional, no el CRM paralelo",
+      "Próximo paso: cotizar solo el bot que se integre con Zoho vía API"
+    ],
+    "note": "El precio varió entre la presentación inicial (USD 1.900) y el PDF completo (USD 9.500+). Señal de alerta.",
+    "author": "Dani"
+  },
+  {
+    "id": "004",
+    "date": "2026-06-11",
+    "title": "Roberto define el orden de implementación del ERP",
+    "description": "El director define claramente las etapas del ERP: primero las herramientas enlatadas urgentes, después la integración con Ricky, y finalmente las automatizaciones 4.0.",
+    "categories": ["erp"],
+    "steps": [
+      "Etapa 1: facturación y circuitos administrativos (enlatado)",
+      "Etapa 2: gestión de mercadería y flujos de mercadería",
+      "Etapa 3: RRHH y todo lo enlatado",
+      "Etapa 4: integración con sistema Ricky vía API",
+      "Etapa 5: automatizaciones y Sistemas 4.0 completo",
+      "El backoffice (Ricky) queda para diseño de bolsa y lo que funcione bien actualmente"
+    ],
+    "note": null,
+    "author": "Roberto / Dani"
+  },
+  {
+    "id": "003",
+    "date": "2026-06-09",
+    "title": "Clientes recurrentes: pipeline express de una etapa",
+    "description": "Para unidades donde la negociación es mínima, se define un pipeline separado con una sola etapa que va directo a Ganado.",
+    "categories": ["crm"],
+    "steps": [
+      "Problema: ejecutivos se quejaban de doble carga entre CRM y backoffice",
+      "Solución elegida: pipeline express 'Clientes recurrentes' con etapa única",
+      "Valor de igual cargar en CRM: histórico de frecuencia, detección de churn silencioso",
+      "Opción descartada: no cargar en CRM (erosiona el criterio con el tiempo)"
+    ],
+    "note": null,
+    "author": "Dani"
+  },
+  {
+    "id": "002",
+    "date": "2026-05-01",
+    "title": "Integración email: se define IMAP como protocolo",
+    "description": "Se configura la integración del servidor de correo con Zoho CRM usando IMAP para permitir sincronización bidireccional entre Outlook y el CRM.",
+    "categories": ["crm", "integraciones"],
+    "steps": [
+      "IMAP elegido sobre POP3 por sincronización en tiempo real",
+      "POP3 descartado: borra del servidor y rompe la visibilidad multi-dispositivo",
+      "Condición: el mail de Outlook tiene que salir desde la misma cuenta configurada en Zoho",
+      "Configurar qué carpetas están habilitadas para sync (Enviados incluido)"
+    ],
+    "note": null,
+    "author": "Dani"
+  },
+  {
+    "id": "001",
+    "date": "2026-04-01",
+    "title": "Arranque de implementación CRM — Zoho Enterprise",
+    "description": "Se inicia la implementación formal del CRM. Se define la arquitectura base: 5 unidades de negocio, pipelines por UdN, roles SDR y AE.",
+    "categories": ["crm", "estructura"],
+    "steps": [
+      "5 unidades de negocio: New Bag, Merch/DYG, Spunbond, New Mask, Trade",
+      "Pipeline SDR → 6 AE (uno por unidad de negocio)",
+      "Campos personalizados en Deals y Accounts",
+      "Workflows: derivación SDR→AE, actualización de unidades activas"
+    ],
+    "note": null,
+    "author": "Dani"
+  }
+]
