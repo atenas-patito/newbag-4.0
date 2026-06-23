@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemas 4.0 · Plan de acción 2026–2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F7F7F5;
+      --surface: #FFFFFF;
+      --border: #E4E4E0;
+      --border-light: #EFEFEC;
+      --text-primary: #1A1A18;
+      --text-secondary: #6B6B67;
+      --text-tertiary: #A8A8A4;
+      --accent: #1C3D6E;
+      --accent-light: #EBF0F8;
+      --accent-mid: #4A6FA5;
+      --green: #1A7A52;
+      --green-bg: #EBF5F0;
+      --amber: #8A5C00;
+      --amber-bg: #FDF4E3;
+      --red: #8A2020;
+      --red-bg: #FDF0F0;
+      --font: 'Inter', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+      --nav-w: 220px;
+      --radius: 6px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text-primary); font-size: 14px; line-height: 1.6; min-height: 100vh; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; width: var(--nav-w);
+      height: 100vh; background: var(--surface); border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; padding: 28px 0; z-index: 100; overflow-y: auto;
+    }
+    .nav-logo {
+      padding: 0 20px 24px;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 16px;
+    }
+    .nav-logo-tag { font-size: 10px; font-family: var(--mono); color: var(--text-tertiary); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+    .nav-logo-title { font-size: 13px; font-weight: 600; color: var(--accent); line-height: 1.3; }
+    .nav-logo-sub { font-size: 12px; color: var(--text-tertiary); margin-top: 2px; }
+
+    .nav-section-label { font-size: 10px; font-family: var(--mono); color: var(--text-tertiary); letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 20px 4px; }
+    .nav-link {
+      display: flex; align-items: center; gap: 8px; padding: 7px 20px;
+      text-decoration: none; color: var(--text-secondary); font-size: 13px; font-weight: 400;
+      border-left: 2px solid transparent; transition: all 0.15s;
+    }
+    .nav-link:hover { color: var(--text-primary); background: var(--bg); }
+    .nav-link.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-light); font-weight: 500; }
+    .nav-link .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
+    .nav-link.active .dot { background: var(--accent); }
+
+    .nav-footer { margin-top: auto; padding: 16px 20px 0; border-top: 1px solid var(--border-light); }
+    .nav-footer-text { font-size: 11px; color: var(--text-tertiary); line-height: 1.5; }
+
+    /* MAIN */
+    main { margin-left: var(--nav-w); min-height: 100vh; }
+    section { max-width: 780px; padding: 60px 48px; }
+    section + section { border-top: 1px solid var(--border-light); }
+
+    .section-eyebrow { font-size: 10px; font-family: var(--mono); color: var(--text-tertiary); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+    .section-title { font-size: 22px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+    .section-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 32px; max-width: 560px; line-height: 1.7; }
+
+    /* NORTE ESTRATÉGICO */
+    .objetivo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+    .objetivo-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+    .objetivo-card-num { font-size: 10px; font-family: var(--mono); color: var(--text-tertiary); margin-bottom: 6px; }
+    .objetivo-card-title { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+    .objetivo-card-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+
+    .pilares { display: flex; flex-direction: column; gap: 10px; }
+    .pilar {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+    .pilar-num { font-family: var(--mono); font-size: 11px; color: var(--accent); min-width: 24px; padding-top: 1px; }
+    .pilar-body {}
+    .pilar-title { font-size: 13px; font-weight: 500; color: var(--text-primary); }
+    .pilar-desc { font-size: 12px; color: var(--text-secondary); margin-top: 2px; line-height: 1.6; }
+
+    /* ESTADO ACTUAL */
+    .fases { display: flex; flex-direction: column; gap: 0; }
+    .fase {
+      display: flex; gap: 16px; padding: 20px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .fase:last-child { border-bottom: none; }
+    .fase-left { display: flex; flex-direction: column; align-items: center; gap: 0; width: 32px; flex-shrink: 0; }
+    .fase-num-circle {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 600; flex-shrink: 0;
+    }
+    .fase-num-circle.done { background: var(--green-bg); color: var(--green); }
+    .fase-num-circle.active { background: var(--accent-light); color: var(--accent); }
+    .fase-num-circle.pending { background: var(--border-light); color: var(--text-tertiary); }
+    .fase-line { width: 1px; background: var(--border); flex: 1; margin-top: 6px; }
+    .fase-right { flex: 1; padding-bottom: 4px; }
+    .fase-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .fase-title { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+    .fase-badge {
+      font-size: 10px; font-family: var(--mono); padding: 2px 8px;
+      border-radius: 99px; border: 1px solid;
+    }
+    .fase-badge.done { color: var(--green); border-color: #A8D9C0; background: var(--green-bg); }
+    .fase-badge.active { color: var(--accent); border-color: #A8C0D9; background: var(--accent-light); }
+    .fase-badge.pending { color: var(--text-tertiary); border-color: var(--border); background: var(--bg); }
+    .fase-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+    .fase-items { display: flex; flex-wrap: wrap; gap: 6px; }
+    .fase-item {
+      font-size: 11px; padding: 3px 9px; border-radius: 4px;
+      background: var(--bg); border: 1px solid var(--border); color: var(--text-secondary);
+    }
+    .fase-item.done { background: var(--green-bg); border-color: #A8D9C0; color: var(--green); }
+    .fase-item.active { background: var(--accent-light); border-color: #A8C0D9; color: var(--accent); }
+
+    /* FOCO ACTUAL */
+    .foco-box {
+      background: var(--accent); border-radius: var(--radius);
+      padding: 20px 22px; margin-bottom: 28px; color: white;
+    }
+    .foco-box-label { font-size: 10px; font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; margin-bottom: 8px; }
+    .foco-box-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .foco-box-desc { font-size: 13px; opacity: 0.85; line-height: 1.7; }
+    .foco-pendientes { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .foco-tag { font-size: 11px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 4px; padding: 3px 9px; color: rgba(255,255,255,0.9); }
+
+    /* CHANGELOG */
+    .changelog-actions { display: flex; gap: 10px; margin-bottom: 28px; align-items: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 14px; border-radius: var(--radius); font-size: 13px;
+      font-family: var(--font); font-weight: 500; cursor: pointer; border: none;
+      transition: all 0.15s; text-decoration: none;
+    }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: #152D52; }
+    .btn-secondary { background: var(--surface); color: var(--text-secondary); border: 1px solid var(--border); }
+    .btn-secondary:hover { color: var(--text-primary); border-color: #BBBBB7; }
+
+    .filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+    .filter-btn {
+      font-size: 11px; padding: 4px 12px; border-radius: 99px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--text-secondary); cursor: pointer; font-family: var(--font);
+      transition: all 0.15s;
+    }
+    .filter-btn:hover { border-color: #BBBBB7; color: var(--text-primary); }
+    .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+    /* TIMELINE CHANGELOG */
+    .timeline { display: flex; flex-direction: column; }
+    .entry { display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border-light); }
+    .entry:last-child { border-bottom: none; }
+    .entry-left { display: flex; flex-direction: column; align-items: center; width: 80px; flex-shrink: 0; }
+    .entry-date { font-size: 11px; font-family: var(--mono); color: var(--text-tertiary); text-align: right; line-height: 1.4; white-space: nowrap; }
+    .entry-line { width: 1px; background: var(--border); flex: 1; margin-top: 8px; }
+    .entry-dot-col { display: flex; flex-direction: column; align-items: center; width: 16px; flex-shrink: 0; }
+    .entry-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-mid); flex-shrink: 0; margin-top: 5px; }
+    .entry-body { flex: 1; }
+    .entry-title {
+      font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px;
+      cursor: default; display: flex; align-items: center; gap: 6px;
+    }
+    .entry-title.has-detail { cursor: pointer; }
+    .entry-title.has-detail:hover { color: var(--accent); }
+    .entry-title-chevron {
+      width: 9px; height: 9px; flex-shrink: 0; transition: transform 0.2s;
+      color: var(--text-tertiary);
+    }
+    .entry-title.has-detail.expanded .entry-title-chevron { transform: rotate(90deg); color: var(--accent); }
+    .entry-detail {
+      display: none; margin-top: 12px; padding: 14px 16px;
+      background: var(--bg); border: 1px solid var(--border-light); border-radius: var(--radius);
+      font-size: 12.5px; color: var(--text-secondary); line-height: 1.8;
+    }
+    .entry-detail.open { display: block; }
+    .entry-detail strong { color: var(--text-primary); font-weight: 600; }
+    .entry-detail p { margin-bottom: 10px; }
+    .entry-detail p:last-child { margin-bottom: 0; }
+    .entry-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.7; }
+    .entry-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .entry-tag {
+      font-size: 11px; padding: 2px 8px; border-radius: 4px;
+      border: 1px solid var(--border); background: var(--bg); color: var(--text-secondary);
+    }
+    .entry-tag.crm { background: #EBF0F8; border-color: #A8C0D9; color: #1C3D6E; }
+    .entry-tag.erp { background: #F0EBF8; border-color: #C0A8D9; color: #3D1C6E; }
+    .entry-tag.marketing { background: #F5EBEB; border-color: #D9A8A8; color: #6E1C1C; }
+    .entry-tag.integraciones { background: #EBF5EB; border-color: #A8D9A8; color: #1C6E1C; }
+    .entry-tag.estructura { background: #F5F0EB; border-color: #D9C8A8; color: #6E4A1C; }
+    .entry-tag.estrategia { background: #F0F5EB; border-color: #C0D9A8; color: #3D6E1C; }
+    .entry-steps { padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 3px; }
+    .entry-step { font-size: 12px; color: var(--text-secondary); display: flex; gap: 8px; align-items: flex-start; }
+    .entry-step::before { content: '·'; color: var(--text-tertiary); flex-shrink: 0; font-size: 14px; line-height: 1.4; }
+    .entry-note { font-size: 12px; color: var(--amber); background: var(--amber-bg); border-radius: 4px; padding: 6px 10px; margin-top: 8px; border: 1px solid #E8D5A0; }
+    .entry-meta { font-size: 11px; color: var(--text-tertiary); margin-top: 8px; font-family: var(--mono); }
+
+    .empty-state { padding: 40px; text-align: center; color: var(--text-tertiary); font-size: 13px; }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.35);
+      z-index: 200; align-items: center; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--surface); border-radius: 10px; border: 1px solid var(--border);
+      width: 560px; max-width: 95vw; max-height: 90vh; overflow-y: auto;
+      padding: 28px; box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+    .modal-title { font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+    .modal-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 18px; line-height: 1.6; }
+    .modal label { display: block; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin-bottom: 5px; margin-top: 14px; }
+    .modal textarea {
+      width: 100%; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 10px 12px; font-family: var(--font); font-size: 13px; color: var(--text-primary);
+      background: var(--bg); resize: vertical; min-height: 120px; outline: none;
+      transition: border-color 0.15s;
+    }
+    .modal textarea:focus { border-color: var(--accent-mid); }
+    .modal-row { display: flex; gap: 10px; margin-top: 14px; }
+    .modal-input {
+      flex: 1; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 8px 12px; font-family: var(--font); font-size: 13px; color: var(--text-primary);
+      background: var(--bg); outline: none; transition: border-color 0.15s;
+    }
+    .modal-input:focus { border-color: var(--accent-mid); }
+    .modal-actions { display: flex; align-items: center; gap: 10px; margin-top: 18px; justify-content: flex-end; }
+    .status-msg { font-size: 12px; color: var(--text-secondary); margin-right: auto; }
+    .status-msg.error { color: var(--red); }
+    .status-msg.ok { color: var(--green); }
+
+    /* HINT */
+    .hint { background: var(--bg); border: 1px solid var(--border-light); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 16px; }
+    .hint-title { font-size: 11px; font-weight: 500; color: var(--text-secondary); margin-bottom: 6px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em; }
+    .hint-body { font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+    .hint-body code { font-family: var(--mono); background: var(--border-light); padding: 1px 4px; border-radius: 3px; font-size: 11px; }
+
+    /* SCROLL TARGET */
+    .scroll-target { scroll-margin-top: 20px; }
+
+    @media (max-width: 900px) {
+      nav { width: 180px; }
+      main { margin-left: 180px; }
+      section { padding: 40px 24px; }
+      .objetivo-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      nav { display: none; }
+      main { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-logo">
+    <div class="nav-logo-tag">DYG · 2026–2027</div>
+    <div class="nav-logo-title">Plan de acción<br>Sistemas 4.0</div>
+    <div class="nav-logo-sub" id="nav-last-update">—</div>
+  </div>
+
+  <div class="nav-section-label">Secciones</div>
+  <a href="#norte" class="nav-link active" onclick="setActive(this)">
+    <span class="dot"></span>Norte estratégico
+  </a>
+  <a href="#estado" class="nav-link" onclick="setActive(this)">
+    <span class="dot"></span>Estado actual
+  </a>
+  <a href="#changelog" class="nav-link" onclick="setActive(this)">
+    <span class="dot"></span>Changelog
+  </a>
+
+  <div class="nav-footer">
+    <div class="nav-footer-text" id="nav-entries-count">—</div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- NORTE ESTRATÉGICO -->
+  <section id="norte" class="scroll-target">
+    <div class="section-eyebrow">01 · Norte estratégico</div>
+    <div class="section-title">Visión 2026–2027</div>
+    <div class="section-desc">El objetivo de largo plazo del proyecto y los pilares que lo sostienen. Este es el lugar al que volver cuando se pierde el foco.</div>
+
+    <div class="objetivo-grid">
+      <div class="objetivo-card">
+        <div class="objetivo-card-num">Objetivo central</div>
+        <div class="objetivo-card-title">Transformación digital integral</div>
+        <div class="objetivo-card-desc">Llevar la empresa a un modelo donde cada etapa del ciclo — desde el lead hasta el cobro — esté automatizada, conectada y medible.</div>
+      </div>
+      <div class="objetivo-card">
+        <div class="objetivo-card-num">Horizonte</div>
+        <div class="objetivo-card-title">2026 base sólida · 2027 automatización</div>
+        <div class="objetivo-card-desc">2026: sistemas funcionando, datos limpios, procesos adoptados. 2027: integraciones avanzadas, automatizaciones y datos cruzados.</div>
+      </div>
+    </div>
+
+    <div class="pilares">
+      <div class="pilar">
+        <div class="pilar-num">P1</div>
+        <div class="pilar-body">
+          <div class="pilar-title">ERP (Intec / Plataforma)</div>
+          <div class="pilar-desc">Primera etapa: facturación y circuitos administrativos. Segunda: gestión de mercadería y flujos. Tercera: RRHH y módulos enlatados. Luego integración con el sistema Ricky vía API.</div>
+        </div>
+      </div>
+      <div class="pilar">
+        <div class="pilar-num">P2</div>
+        <div class="pilar-body">
+          <div class="pilar-title">CRM (Zoho Enterprise)</div>
+          <div class="pilar-desc">Pipeline comercial por unidad de negocio, segmentación de clientes, visibilidad del director sobre métricas. Meta: que cada ejecutivo cargue bien y el dato sirva para decisiones.</div>
+        </div>
+      </div>
+      <div class="pilar">
+        <div class="pilar-num">P3</div>
+        <div class="pilar-body">
+          <div class="pilar-title">Marketing & Comunicación</div>
+          <div class="pilar-desc">Medición de campañas (UTMs, canales), email marketing (Zoho Campaigns o equivalente), WhatsApp API, tracking de conversiones. Integrar lo que hoy vive en drives manuales.</div>
+        </div>
+      </div>
+      <div class="pilar">
+        <div class="pilar-num">P4</div>
+        <div class="pilar-body">
+          <div class="pilar-title">Integraciones & Automatizaciones</div>
+          <div class="pilar-desc">Conectar ERP ↔ CRM ↔ WhatsApp API ↔ sistemas de producción. Eliminar la doble carga. Automatizar el seguimiento de leads, notificaciones y reportes periódicos.</div>
+        </div>
+      </div>
+      <div class="pilar">
+        <div class="pilar-num">P5</div>
+        <div class="pilar-body">
+          <div class="pilar-title">Adopción & Capacitación</div>
+          <div class="pilar-desc">Sin adopción no hay datos y sin datos no hay sistema. Cada cambio necesita acompañamiento: wiki, capacitaciones por rol, soporte diario durante los primeros meses.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTADO ACTUAL -->
+  <section id="estado" class="scroll-target">
+    <div class="section-eyebrow">02 · Estado actual</div>
+    <div class="section-title">¿Dónde estamos?</div>
+    <div class="section-desc">Foco del momento y estado de cada fase del proyecto. Se actualiza cuando hay cambios significativos.</div>
+
+    <div class="foco-box">
+      <div class="foco-box-label">Foco actual · Junio 2026</div>
+      <div class="foco-box-title">CRM en funcionamiento + primeros pasos del ERP</div>
+      <div class="foco-box-desc">El CRM está configurado y en uso. Se están resolviendo los problemas del día a día (permisos, reportes, adopción). Paralelamente se inicia la evaluación del ERP con reunión con Nico Bianucci y revisión del plan de cuentas contables.</div>
+      <div class="foco-pendientes">
+        <span class="foco-tag">Adopción CRM</span>
+        <span class="foco-tag">Reportes mensuales</span>
+        <span class="foco-tag">WhatsApp API</span>
+        <span class="foco-tag">Evaluación ERP</span>
+        <span class="foco-tag">Email marketing</span>
+      </div>
+    </div>
+
+    <div class="fases">
+      <div class="fase">
+        <div class="fase-left">
+          <div class="fase-num-circle done">✓</div>
+          <div class="fase-line"></div>
+        </div>
+        <div class="fase-right">
+          <div class="fase-header">
+            <div class="fase-title">Fase 0 — Diagnóstico y diseño</div>
+            <span class="fase-badge done">Completo</span>
+          </div>
+          <div class="fase-desc">Relevamiento del negocio, diseño de la arquitectura del CRM, definición de roles, campos y pipelines por unidad de negocio.</div>
+          <div class="fase-items">
+            <span class="fase-item done">Arquitectura CRM</span>
+            <span class="fase-item done">Pipelines 5 UdN</span>
+            <span class="fase-item done">Roles y permisos</span>
+            <span class="fase-item done">Campos personalizados</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fase">
+        <div class="fase-left">
+          <div class="fase-num-circle active">→</div>
+          <div class="fase-line"></div>
+        </div>
+        <div class="fase-right">
+          <div class="fase-header">
+            <div class="fase-title">Fase 1 — CRM operativo</div>
+            <span class="fase-badge active">En curso</span>
+          </div>
+          <div class="fase-desc">CRM funcionando con usuarios reales. Resolución de problemas de adopción, integración de correo, reportes básicos y primeros dashboards.</div>
+          <div class="fase-items">
+            <span class="fase-item done">Usuarios y configuración</span>
+            <span class="fase-item done">Integración email IMAP</span>
+            <span class="fase-item active">Adopción ejecutivos</span>
+            <span class="fase-item active">Reportes mensuales</span>
+            <span class="fase-item">WhatsApp API</span>
+            <span class="fase-item">Email marketing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fase">
+        <div class="fase-left">
+          <div class="fase-num-circle pending">3</div>
+          <div class="fase-line"></div>
+        </div>
+        <div class="fase-right">
+          <div class="fase-header">
+            <div class="fase-title">Fase 2 — ERP (primera etapa)</div>
+            <span class="fase-badge pending">Próximamente</span>
+          </div>
+          <div class="fase-desc">Evaluación y selección del ERP. Implementación de facturación y circuitos administrativos básicos. Migración desde sistema Ricky.</div>
+          <div class="fase-items">
+            <span class="fase-item">Evaluación proveedores</span>
+            <span class="fase-item">Plan de cuentas contables</span>
+            <span class="fase-item">Facturación</span>
+            <span class="fase-item">Circuitos administrativos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fase">
+        <div class="fase-left">
+          <div class="fase-num-circle pending">4</div>
+          <div class="fase-line"></div>
+        </div>
+        <div class="fase-right">
+          <div class="fase-header">
+            <div class="fase-title">Fase 3 — Integraciones</div>
+            <span class="fase-badge pending">2027</span>
+          </div>
+          <div class="fase-desc">Conexión ERP ↔ CRM ↔ WhatsApp ↔ sistemas de producción. Automatizaciones de seguimiento. Eliminación de doble carga.</div>
+          <div class="fase-items">
+            <span class="fase-item">ERP ↔ CRM API</span>
+            <span class="fase-item">Automatizaciones</span>
+            <span class="fase-item">Reportes cruzados</span>
+            <span class="fase-item">Dashboard dirección</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fase">
+        <div class="fase-left">
+          <div class="fase-num-circle pending">5</div>
+        </div>
+        <div class="fase-right">
+          <div class="fase-header">
+            <div class="fase-title">Fase 4 — Sistemas 4.0 completo</div>
+            <span class="fase-badge pending">2027</span>
+          </div>
+          <div class="fase-desc">Todo el ciclo automatizado y medible: desde el lead hasta el cobro. RRHH integrado. Métricas en tiempo real para dirección.</div>
+          <div class="fase-items">
+            <span class="fase-item">Lead → cobro automatizado</span>
+            <span class="fase-item">BI en tiempo real</span>
+            <span class="fase-item">RRHH integrado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANGELOG -->
+  <section id="changelog" class="scroll-target">
+    <div class="section-eyebrow">03 · Changelog</div>
+    <div class="section-title">Registro de decisiones</div>
+    <div class="section-desc">Cada decisión significativa, cambio de rumbo o avance importante. Para no re-pensar lo ya pensado.</div>
+
+    <div class="changelog-actions">
+      <button class="btn btn-primary" onclick="openModal()">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg>
+        Nueva entrada
+      </button>
+      <button class="btn btn-secondary" onclick="copyPrompt()">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
+        Copiar prompt
+      </button>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-cat="all" onclick="filterBy('all', this)">Todos</button>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <div class="empty-state">Cargando...</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-title">Nueva entrada al changelog</div>
+    <div class="modal-desc">Describí en lenguaje natural qué pasó, qué se decidió o qué cambió. La IA lo va a estructurar.</div>
+
+    <div class="hint">
+      <div class="hint-title">Ejemplos de entradas</div>
+      <div class="hint-body">
+        "Decidimos no avanzar con la agencia X para el bot de WhatsApp porque su propuesta incluía desarrollar un CRM propio que duplicaría lo que ya tenemos en Zoho."<br><br>
+        "Configuré el pipeline express para clientes recurrentes de New Bag: una sola etapa que va directo a Ganado."<br><br>
+        "Roberto confirmó que el orden del ERP es: primero facturación, después gestión de mercadería, después RRHH."
+      </div>
+    </div>
+
+    <label>¿Qué pasó? ¿Qué se decidió?</label>
+    <textarea id="raw-input" placeholder="Describí la decisión o el cambio en tus propias palabras..."></textarea>
+
+    <div class="modal-row">
+      <input class="modal-input" id="gh-token" type="password" placeholder="GitHub token (ghp_...)">
+      <input class="modal-input" id="gh-repo" type="text" placeholder="usuario/repositorio">
+    </div>
+
+    <div class="modal-actions">
+      <span class="status-msg" id="status-msg"></span>
+      <button class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
+      <button class="btn btn-primary" id="btn-publish" onclick="processAndPublish()">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10l6-6 6 6"/><line x1="8" y1="4" x2="8" y2="14"/></svg>
+        Publicar
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+const INITIAL_ENTRIES = [
+  {
+    id: "001",
+    date: "2026-01-15",
+    title: "Onboarding con Intec/Leadworks y primer plan de proyecto",
+    description: "Reunión de arranque con el equipo de Intec (agencia que iba a desarrollar el CRM sobre Active Campaign). Se define el plan en 4 pasos: organizar bases de datos, definir flujo de marketing, etapa de prueba y capacitaciones.",
+    categories: ["crm", "estrategia"],
+    steps: ["Equipo Intec: Rosario (marketing/líder), Matías (operativo de AC), tercera persona a confirmar", "Paso 1: limpiar y estructurar la base de datos propia antes de cualquier configuración", "Definición pendiente: qué campos personalizados y listas se van a usar", "Se identifica el problema de bases de datos muy extensas y de baja calidad (sube el costo del plan y baja la conversión)"],
+    detail: null,
+    note: "Esta etapa del proyecto se hizo sobre Active Campaign con la agencia Intec/Leadworks. El proyecto completo con esta agencia se descartó en abril/mayo a favor de Zoho CRM.",
+    author: "Dani",
+  },
+  {
+    id: "002",
+    date: "2026-01-30",
+    title: "Segundo inicio oficial del proyecto: limpieza de base de datos",
+    description: "Se oficializa el inicio del proyecto con la presentación del equipo completo de Intec, tras recibir la base de datos corregida (división de nombres, limpieza de duplicados).",
+    categories: ["estructura"],
+    steps: ["Primera presentación formal del plan de implementación detallado, agendada para la primera semana de febrero"],
+    detail: null,
+    note: null,
+    author: "Dani",
+  },
+  {
+    id: "003",
+    date: "2026-02-13",
+    title: "Relevamiento comercial: origen de leads y criterios de derivación",
+    description: "Reunión de relevamiento con Romina (equipo funcional de Intec) para definir el flujo completo: cómo entra un lead, cómo se asigna a un ejecutivo y con qué criterio se deriva a cada unidad de negocio.",
+    categories: ["crm", "estructura"],
+    steps: ["Orígenes de leads identificados: redes sociales, ingreso manual, campañas de Google, landings por unidad, chatbot a futuro", "El origen del lead determina la automatización disparada y el embudo de ingreso", "Definición: el lead entra primero al callcenter interno (asignación automática) y luego se deriva manualmente al ejecutivo de cuenta según lo que pide el cliente", "El objetivo es que el callcenter avance lo más posible en la calificación antes de pasarlo al ejecutivo"],
+    detail: null,
+    note: "En este momento la derivación a embudos seguía siendo manual (no automatizada por IA o reglas).",
+    author: "Dani / Romina",
+  },
+  {
+    id: "004",
+    date: "2026-03-13",
+    title: "Alta de cuenta en Active Campaign",
+    description: "Primeras configuraciones técnicas en la plataforma: listas, dominios y estructura base antes de empezar a cargar leads reales.",
+    categories: ["crm"],
+    steps: [],
+    detail: null,
+    note: null,
+    author: "Dani",
+  },
+  {
+    id: "005",
+    date: "2026-03-20",
+    title: "New Bag como unidad piloto y definición de próximos pasos",
+    description: "Reunión con el equipo completo de Intec para definir New Bag como unidad de referencia: se arma su embudo primero y después se usa como modelo para las demás unidades de negocio.",
+    categories: ["crm", "estructura"],
+    steps: ["Acuerdo: ser estrictos con los criterios de qué es etiqueta, qué es campo y qué es lista, con autorización centralizada para crearlos", "Objetivo de la semana siguiente: que los leads de la web de New Bag entren directo a Active Campaign vía formularios", "Pedido del director: integración con el backoffice (sistema propio en PHP) para no duplicar carga cuando una venta ya está prácticamente cerrada — Intec estima que es una porción menor de casos, el director corrige: es el 80% de los casos reales", "Se identifica la necesidad de un contador de ventas por cuenta (se suma cada vez que un trato se marca como ganado) para detectar clientes recurrentes"],
+    detail: "**Contexto:** reunión con Robert, Rosario, Romina y Dani (más equipo Intec) para definir el camino a seguir con New Bag como unidad piloto antes de extender a las demás unidades de negocio.\n\n**Punto de friction temprano:** el director planteó la necesidad de integrar el CRM con el backoffice en PHP para evitar duplicar tareas cuando una venta ya llega prácticamente cerrada (sin pasar por todo el embudo de calificación). El equipo de Intec no tenía esto contemplado en el alcance del proyecto y subestimó cuántos casos eran así — pensaban que eran pocos, cuando en la operación real eran la mayoría. Quedó anotado como requerimiento a investigar, pero es uno de los primeros indicios de que el alcance contratado no iba a cubrir lo que la operación necesitaba.\n\n**Definiciones técnicas:** se estableció que el origen de cada lead determina tanto la automatización que se dispara como el embudo de ingreso. También se acordó ser estrictos en la gobernanza de la base de datos: solo una o dos personas autorizadas para crear etiquetas, campos o listas nuevas, para evitar que la estructura se degrade con el tiempo.",
+    note: null,
+    author: "Dani / Roberto / Rosario / Romina",
+  },
+  {
+    id: "006",
+    date: "2026-04-10",
+    title: "Primer uso real del sistema y arranque del proyecto de WhatsApp",
+    description: "Se da de alta a los primeros usuarios reales (Nati, Mica) y se decide avanzar en paralelo con un segundo proyecto: el chatbot de WhatsApp, además del CRM.",
+    categories: ["crm", "marketing"],
+    steps: ["El software de WhatsApp elegido (Hilos) tiene integración nativa con Active Campaign", "Definición: una sola línea de WhatsApp, segmentada según asignación a ejecutivos y etiquetas", "Advertencia de Intec sobre difusiones masivas por WhatsApp: usarlas con cuidado porque Meta puede banear el número", "Se decide sumar D&G Merch a esta primera etapa del proyecto (originalmente iba a ser 100% New Bag primero)"],
+    detail: "**Sobre el alcance de unidades:** Intec propuso trabajar con 3 unidades de negocio en lugar de 5 para el armado de campañas de marketing, ya que New Bag, Merch y Trade comparten audiencia y desde el punto de vista de comunicación son una sola. Los embudos de gestión individual de cada ejecutivo se mantenían en 5 de todas formas — la fusión era solo a nivel de segmentación de marketing, no de operación comercial.\n\n**Sobre WhatsApp:** se evaluaron dos propuestas comerciales en paralelo — una de Intec (configuración y desarrollo de flujos, con costo único de desarrollo más las plataformas de Hilos y Active Campaign a cargo del cliente) y otra de Leadworks (modelo de mejora continua mensual con soporte y nuevas automatizaciones). El director decidió avanzar con los dos proyectos —CRM y chatbot— en simultáneo, algo que normalmente se evita pero se aceptó como excepción dado el timing.",
+    note: null,
+    author: "Dani / Roberto",
+  },
+  {
+    id: "007",
+    date: "2026-04-22",
+    title: "Workshop sin definiciones: primera señal de alerta con Intec",
+    description: "Reunión presencial pensada para cerrar definiciones de campos, etiquetas y automatizaciones. No se llegó a ninguna conclusión concreta — el equipo de Intec no tenía respuestas claras y el proyecto empezó a mostrar señales de estancamiento.",
+    categories: ["crm", "estrategia"],
+    steps: ["Se definió no activar automatizaciones nuevas hasta que el equipo se adapte al uso manual del CRM primero", "Se relevaron las automatizaciones ya activas (seguimiento de leads por etapa, tareas y notificaciones automáticas)", "Reunión paralela con Lemon (otro proveedor de chatbot) terminó en una disputa entre proveedores sobre quién debía desarrollar el bot, sin resolución clara"],
+    detail: "**Nota del director sobre este workshop:** este encuentro marcó, en retrospectiva, el principio del fin de la relación con Intec para el desarrollo del CRM. No se definió nada concreto, el equipo de consultores no sabía responder preguntas operativas básicas, no había un hilo conductor claro de hacia dónde iba el proyecto, y la respuesta recurrente ante cualquier bloqueo era proponer sumar más horas de consultoría al presupuesto en lugar de resolver el problema de fondo.",
+    note: "Este workshop es el primer quiebre visible en la relación con la agencia. A partir de acá empiezan los reclamos formales por mail.",
+    author: "Dani",
+  },
+  {
+    id: "008",
+    date: "2026-04-24",
+    title: "Reclamo formal a Intec: 8 puntos sin resolver",
+    description: "Tras meses de demoras y respuestas poco claras, se envía un mail formal listando 8 problemas técnicos sin solución (rubros, campos de volumen de compra, ID de empresa, vínculo contacto-cuenta, revendedores, cliente activo, conexión de correo y origen). El intercambio se extiende por semanas con respuestas evasivas.",
+    categories: ["crm", "estrategia"],
+    steps: ["Estructura de rubros y subrubros: Intec primero dice que está fuera de alcance, después lo implementa sin avisar", "Campo ID Empresa: lo modifican mal y pierden la información ya cargada — crítico porque es el vínculo con el backoffice", "Campo 'Otras empresas' (vínculo contacto-múltiples cuentas): la solución que proponen no refleja la relación real de la base (22 casos reales convertidos en opciones fijas para los 800 contactos)", "Revendedores mayoristas: cambian de etiquetas a listas sin justificar el criterio técnico", "Conexión de correo: nunca se había conectado realmente, a pesar de reportarse como activa", "Campo Origen: confusión persistente sobre cuándo usar etiqueta vs. campo personalizado"],
+    detail: "**Contexto:** después de semanas de intercambios de mail con respuestas ambiguas o contradictorias, se formaliza un reclamo estructurado en 8 puntos, todos ellos cambios o definiciones que ya se habían acordado verbalmente pero que no se implementaban correctamente o se implementaban sin comunicación previa.\n\n**Patrón identificado:** varios de estos puntos se resolvían unilateralmente por parte de Intec (sin consultar) y, cuando se les pedía la justificación técnica del criterio elegido, las respuestas eran vagas o contradictorias entre sí. El caso más grave fue el campo ID Empresa — el vínculo crítico con el sistema de backoffice propio — que se modificó mal y resultó en pérdida de información ya cargada.\n\n**Caso revendedores:** se necesitaba diferenciar revendedores mayoristas (que tienen cuenta propia) de sus clientes finales (cargados como cuentas independientes sin distinción de a qué revendedor pertenecían). La solución evolucionó de etiquetas a listas sin que quedara claro el criterio de cambio ni cómo se reflejaba el vínculo entre revendedor y cliente final.\n\n**Caso cliente activo / frecuencia de compra:** se pedía que la inactividad de un cliente se calculara según su frecuencia de compra particular (un cliente anual sigue activo a los 11 meses pero no a los 14), no con un plazo fijo igual para todos. La implementación inicial usó un criterio fijo sin consultar, y se tuvo que corregir.\n\nEste intercambio se extendió varias semanas (30/04, 06/05, 07/05) sin resolución completa de varios puntos, lo cual fue un factor central en la decisión posterior de discontinuar el proyecto con esta agencia.",
+    note: "Intercambio extenso (varias semanas, múltiples respuestas cruzadas). Se resume el patrón general; el detalle punto por punto completo queda en el documento original de Notion si se necesita en el futuro.",
+    author: "Dani",
+  },
+  {
+    id: "009",
+    date: "2026-05-08",
+    title: "Llamada de seguimiento: se reconocen los problemas pero no se resuelven",
+    description: "Llamada con Rosario (Leadworks/Intec) tras el reclamo formal. Reconoce que hubo ruido por el volumen de gente en las reuniones iniciales y que asumieron cosas cerradas que no lo estaban. Se acuerda un flujograma nuevo para la próxima reunión.",
+    categories: ["crm", "estrategia"],
+    steps: ["Se reconoce que el problema de ecommerce/carrito de compras no estaba contemplado en la propuesta original y requería una arquitectura distinta a la elegida", "Se aclara el criterio técnico de etiqueta vs. campo vs. lista: campo es dato fijo e histórico (ej. origen), etiqueta es dato dinámico (ej. estado del cliente), lista es para comunicaciones diferenciadas", "Próxima reunión agendada para la semana del 12 de mayo, con flujograma actualizado para validar y cerrar definiciones"],
+    detail: null,
+    note: null,
+    author: "Dani / Rosario",
+  },
+  {
+    id: "010",
+    date: "2026-05-13",
+    title: "Última reunión con Intec antes del cambio a Zoho",
+    description: "Reunión de cierre de varios temas pendientes (otras empresas, revendedores, frecuencia de compra, conexión de correo, calificación de leads). El SDR se define como rol que trabaja por actividades, sin pipeline propio visible. Cinco días después se decide pasar a Zoho.",
+    categories: ["crm", "estructura"],
+    steps: ["Se define que el SDR trabaja con campos personalizados y actividades en el módulo de Leads, sin pipeline visual propio — los embudos quedan reservados para los ejecutivos de cuenta", "Campo 'Otras empresas': se acuerda implementarlo como texto libre a nivel cuenta, como solución temporal", "Revendedores: se define usar el campo de rubro para identificarlos, con un campo adicional de 'revendedor asignado' a nivel cuenta para sus clientes", "Frecuencia de compra: se agrega la opción 'esporádico' como valor por defecto, obligatorio completar al dar de alta un cliente", "Sobre WhatsApp: se decide no avanzar todavía — primero hay que terminar de relevar y estructurar las 4 unidades de negocio que faltan, para no generar un quilombo agregando una capa más sobre una base aún incompleta"],
+    detail: "**Sobre el rol del SDR:** se evaluaron dos opciones. La opción A (el SDR trabaja solo en el módulo de Leads, sin pipeline visual, usando campos personalizados y actividades) y la opción B (el SDR tiene su propio pipeline de tratos en etapas tempranas). Se optó por un híbrido inclinado hacia la opción A: el SDR usa actividades y campos personalizados bien definidos, con un estado de lead que funciona como su propio embudo aunque no sea un pipeline visual clásico. Esto mantiene limpio el pipeline de los ejecutivos de cuenta y da métricas separadas del trabajo del SDR.\n\n**Por qué no se avanza con WhatsApp todavía:** la pregunta de Romina fue directa — cuál era el plan para avanzar con WhatsApp. La respuesta fue que sin la infraestructura de las 4 unidades de negocio restantes bien armada, agregar la capa de WhatsApp iba a generar un desorden mayor. El plan pasó a ser: relevar primero esas unidades (estructurar bases de datos, procesos y campos necesarios), recién después avanzar con WhatsApp.\n\nEsta fue la última reunión sustancial con el equipo de Intec/Leadworks antes de la decisión de pasar a Zoho CRM, tomada cinco días después.",
+    note: null,
+    author: "Dani / Romina / Rosario",
+  },
+  {
+    id: "011",
+    date: "2026-05-18",
+    title: "Se decide discontinuar Active Campaign y pasar a Zoho CRM",
+    description: "Tras meses de demoras, respuestas técnicas contradictorias y un alcance de proyecto que no terminaba de cubrir las necesidades reales del negocio, se decide dejar de trabajar con Intec/Leadworks y migrar la implementación del CRM a Zoho.",
+    categories: ["crm", "estrategia"],
+    steps: ["Se da de alta Zoho CRM como nueva plataforma", "Se cierra la relación de desarrollo con Intec para el armado del CRM"],
+    detail: null,
+    note: "Decisión clave del proyecto: cambio de plataforma completo después de 4 meses de trabajo con Active Campaign.",
+    author: "Dani / Roberto",
+  },
+  {
+    id: "012",
+    date: "2026-05-29",
+    title: "Primeros usuarios y pruebas en Zoho",
+    description: "Se dan de alta los primeros 3 usuarios en Zoho (Callcenter, Dani y Eric) y se hacen las primeras pruebas de automatizaciones y derivaciones, ya con la nueva plataforma.",
+    categories: ["crm"],
+    steps: [],
+    detail: null,
+    note: null,
+    author: "Dani",
+  },
+  {
+    id: "013",
+    date: "2026-06-04",
+    title: "Baja formal de Active Campaign y primer onboarding en Zoho",
+    description: "El director comunica formalmente a Rosario (Intec) que no van a continuar con ellos. Se hace el primer onboarding general a ejecutivos y callcenter sobre el funcionamiento del nuevo CRM.",
+    categories: ["crm", "estrategia"],
+    steps: ["03.06 — Alta de 6 usuarios nuevos en Zoho CRM", "08.06 — Se dan de baja todos los usuarios y cuentas adicionales de Active Campaign"],
+    detail: null,
+    note: null,
+    author: "Roberto / Dani",
+  },
+  {
+    id: "014",
+    date: "2026-06-12",
+    title: "Integración email: se define IMAP como protocolo",
+    description: "Se configura la integración del servidor de correo con Zoho CRM usando IMAP para permitir sincronización bidireccional entre Outlook y el CRM.",
+    categories: ["crm", "integraciones"],
+    steps: ["IMAP elegido sobre POP3 por sincronización en tiempo real", "POP3 descartado: borra del servidor y rompe la visibilidad multi-dispositivo", "Condición: el mail de Outlook tiene que salir desde la misma cuenta configurada en Zoho", "Configurar qué carpetas están habilitadas para sync (Enviados incluido)"],
+    detail: "**Decisión:** Configuración del protocolo de correo electrónico para la integración con Zoho CRM\n\nSe decidió usar IMAP (en lugar de POP3) para la integración del servidor de correo electrónico con Zoho CRM, por las siguientes razones:\n\n1. **Sincronización en tiempo real entre todos los dispositivos.** IMAP mantiene el servidor como fuente única de verdad: cualquier acción realizada desde Zoho, Outlook, webmail o el celular se refleja de manera consistente en todos los puntos de acceso. POP3 está diseñado para un único dispositivo y no garantiza esta coherencia.\n\n2. **Necesidad de Zoho CRM de acceder al historial completo de correos.** Zoho requiere ver los mensajes alojados en el servidor para poder asociarlos automáticamente a los contactos, leads y oportunidades correspondientes. Bajo POP3, los correos suelen descargarse y eliminarse del servidor, lo que impediría que el CRM acceda a ellos.\n\n3. **Trazabilidad de la comunicación comercial.** Al utilizar IMAP, los correos enviados desde otros clientes de correo (por ejemplo, Outlook de escritorio) en respuesta a una cadena iniciada desde Zoho también se sincronizan con el CRM, manteniendo el historial de la conversación completo y centralizado.\n\n4. **Escalabilidad del equipo comercial.** A medida que más usuarios o dispositivos se sumen a la gestión de las cuentas de correo, IMAP evita la fragmentación de información que generaría POP3, donde cada dispositivo podría tener una copia distinta y desactualizada de la bandeja.\n\n**Conclusión:** IMAP es el protocolo que garantiza la integridad, disponibilidad y trazabilidad de las comunicaciones por correo electrónico requeridas para el funcionamiento del CRM.",
+    note: null,
+    author: "Dani",
+  },
+  {
+    id: "015",
+    date: "2026-06-19",
+    title: "Criterios de conversión de lead a cliente y manual de uso para ejecutivos",
+    description: "Se documenta formalmente cuándo un Posible Cliente se convierte en Cuenta + Contacto + Trato, y se actualiza la wiki con la guía operativa para ejecutivos de cuenta.",
+    categories: ["crm", "estructura"],
+    steps: ["Posible Cliente → Cliente: se convierte cuando confirma intención de compra real (en general, al pedir cotización), no cuando ya compró", "Al convertir se crean automáticamente Cuenta + Contacto + Trato — momento clave para verificar que los datos obligatorios estén completos", "Regla general: todos los clientes y pedidos pasan por el CRM antes de entrar a Backoffice; al cerrar un trato se actualiza el ID correspondiente en ambos sistemas", "Empresas duplicadas: si la cuenta ya existe, se vincula el contacto a la existente en vez de crear una nueva"],
+    detail: "**Definición de criterio de conversión (Lead → Cliente):**\n\nUn Lead o Posible Cliente es alguien sobre quien se tiene información mínima y cuya intención de compra todavía no está validada — puede haber llenado un formulario, escrito preguntando vagamente, o haberse conseguido en una feria.\n\nLa conversión a Contacto + Cuenta + Trato ocurre cuando ese lead ya está calificado: se confirmó que tiene intención real, presupuesto, y es la persona o empresa correcta. El momento exacto de esa conversión es cuando pide cotización, precio, cantidad o condiciones — esa es la señal de intención concreta. No hace falta esperar a que compre para convertirlo: la conversión marca que pasó el filtro de calificación, no que ya es cliente. El trato puede perfectamente arrancar en etapa \"Cotización enviada\" o \"Negociación\".\n\nCuándo es cliente de verdad ya depende del proceso de cada unidad, pero lo usual es cuando acepta la propuesta, hace el primer pago, o se le emite la primera factura — ese momento se refleja como trato en \"Cerrado ganado\", y ahí la Cuenta pasa a ser cliente activo en el sentido comercial pleno.",
+    note: null,
+    author: "Dani",
+  },
+];
+
+const PROMPT_TEMPLATE = `Sos un asistente que estructura entradas de changelog para un proyecto de transformación digital llamado "Plan de acción 2026-2027: Sistemas 4.0" de una empresa con 5 unidades de negocio (New Bag, Merch/DYG, Spunbond, New Mask, Trade).
+
+A partir del texto libre del usuario, generá un JSON con exactamente esta estructura. Respondé SOLO con el JSON puro, sin texto extra, sin backticks, sin markdown.
+
+{
+  "id": "{{NEXT_ID}}",
+  "date": "{{TODAY}}",
+  "title": "título conciso en español, máximo 12 palabras",
+  "description": "descripción resumida en 1-2 oraciones explicando qué pasó y por qué importa (esto se muestra siempre, en la vista compacta)",
+  "categories": ["array con categorías relevantes: crm, erp, marketing, integraciones, estructura, estrategia"],
+  "steps": ["punto clave 1", "punto clave 2", "..."],
+  "detail": "SOLO si el texto del usuario es extenso y tiene desarrollo/justificación largos (más de 4-5 líneas): el texto completo reformateado en formato narrativo con saltos de párrafo (\\n\\n) y **negrita** para términos clave, tal como para un registro de decisiones formal. Si el texto del usuario es corto, poné null acá.",
+  "note": "observación importante o null si no hay nada",
+  "author": "Dani"
+}
+
+Texto del usuario:
+{{USER_TEXT}}`;
+
+// ============================================================
+// STATE
+// ============================================================
+let allEntries = [];
+let activeFilter = 'all';
+
+// ============================================================
+// INIT
+// ============================================================
+async function init() {
+  try {
+    const res = await fetch('changelog.json?_=' + Date.now());
+    allEntries = await res.json();
+  } catch {
+    allEntries = INITIAL_ENTRIES;
+  }
+  allEntries.sort((a, b) => new Date(b.date) - new Date(a.date));
+  buildFilters();
+  renderTimeline(allEntries);
+  updateNavStats();
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function buildFilters() {
+  const cats = new Set();
+  allEntries.forEach(e => (e.categories || []).forEach(c => cats.add(c)));
+  const container = document.getElementById('filters');
+  container.innerHTML = '<button class="filter-btn active" data-cat="all" onclick="filterBy(\'all\', this)">Todos</button>';
+  const labels = { crm: 'CRM', erp: 'ERP', marketing: 'Marketing', integraciones: 'Integraciones', estructura: 'Estructura', estrategia: 'Estrategia' };
+  cats.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.dataset.cat = c;
+    btn.textContent = labels[c] || c;
+    btn.onclick = () => filterBy(c, btn);
+    container.appendChild(btn);
+  });
+}
+
+function filterBy(cat, btn) {
+  activeFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const filtered = cat === 'all' ? allEntries : allEntries.filter(e => (e.categories || []).includes(cat));
+  renderTimeline(filtered);
+}
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr + 'T12:00:00');
+  return d.toLocaleDateString('es-AR', { day: '2-digit', month: 'short', year: '2-digit' });
+}
+
+const CAT_LABELS = { crm: 'CRM', erp: 'ERP', marketing: 'Marketing', integraciones: 'Integraciones', estructura: 'Estructura', estrategia: 'Estrategia' };
+
+function simpleMarkdown(text) {
+  if (!text) return '';
+  return text
+    .split('\n\n')
+    .map(block => {
+      let html = block.trim().replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      return `<p>${html}</p>`;
+    })
+    .join('');
+}
+
+function toggleDetail(id) {
+  const detailEl = document.getElementById('detail-' + id);
+  const titleEl = document.getElementById('title-' + id);
+  if (!detailEl) return;
+  detailEl.classList.toggle('open');
+  titleEl.classList.toggle('expanded');
+}
+
+function renderTimeline(entries) {
+  const tl = document.getElementById('timeline');
+  if (!entries.length) {
+    tl.innerHTML = '<div class="empty-state">No hay entradas para esta categoría.</div>';
+    return;
+  }
+  tl.innerHTML = entries.map((e, i) => `
+    <div class="entry">
+      <div class="entry-left">
+        <div class="entry-date">${formatDate(e.date)}</div>
+        ${i < entries.length - 1 ? '<div class="entry-line"></div>' : ''}
+      </div>
+      <div class="entry-dot-col">
+        <div class="entry-dot"></div>
+      </div>
+      <div class="entry-body">
+        <div class="entry-title ${e.detail ? 'has-detail' : ''}" id="title-${e.id}" ${e.detail ? `onclick="toggleDetail('${e.id}')"` : ''}>
+          ${e.detail ? '<svg class="entry-title-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg>' : ''}
+          ${e.title}
+        </div>
+        <div class="entry-tags">
+          ${(e.categories || []).map(c => `<span class="entry-tag ${c}">${CAT_LABELS[c] || c}</span>`).join('')}
+        </div>
+        <div class="entry-desc">${e.description}</div>
+        ${e.steps && e.steps.length ? `<ul class="entry-steps">${e.steps.map(s => `<li class="entry-step">${s}</li>`).join('')}</ul>` : ''}
+        ${e.note ? `<div class="entry-note">⚠ ${e.note}</div>` : ''}
+        ${e.detail ? `<div class="entry-detail" id="detail-${e.id}">${simpleMarkdown(e.detail)}</div>` : ''}
+        <div class="entry-meta">#${e.id} · ${e.author || 'Dani'}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateNavStats() {
+  const last = allEntries[0];
+  document.getElementById('nav-last-update').textContent = last ? 'Última: ' + formatDate(last.date) : '—';
+  document.getElementById('nav-entries-count').textContent = `${allEntries.length} decisión${allEntries.length !== 1 ? 'es' : ''} registrada${allEntries.length !== 1 ? 's' : ''}`;
+}
+
+// ============================================================
+// MODAL
+// ============================================================
+function openModal() {
+  document.getElementById('modal-overlay').classList.add('open');
+  document.getElementById('status-msg').textContent = '';
+  document.getElementById('status-msg').className = 'status-msg';
+  // Restore saved credentials (persisten entre sesiones)
+  const savedToken = localStorage.getItem('gh-token');
+  const savedRepo = localStorage.getItem('gh-repo');
+  if (savedToken) document.getElementById('gh-token').value = savedToken;
+  if (savedRepo) document.getElementById('gh-repo').value = savedRepo;
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.getElementById('raw-input').value = '';
+}
+
+document.getElementById('modal-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function setStatus(msg, type = '') {
+  const el = document.getElementById('status-msg');
+  el.textContent = msg;
+  el.className = 'status-msg' + (type ? ' ' + type : '');
+}
+
+async function processAndPublish() {
+  const raw = document.getElementById('raw-input').value.trim();
+  const token = document.getElementById('gh-token').value.trim();
+  const repo = document.getElementById('gh-repo').value.trim();
+
+  if (!raw) { setStatus('Escribí algo primero.', 'error'); return; }
+  if (!token || !repo) { setStatus('Completá el token y el repositorio.', 'error'); return; }
+
+  localStorage.setItem('gh-token', token);
+  localStorage.setItem('gh-repo', repo);
+
+  const btn = document.getElementById('btn-publish');
+  btn.disabled = true;
+  setStatus('Procesando con IA...');
+
+  const nextId = allEntries.length > 0
+    ? String(Math.max(...allEntries.map(e => parseInt(e.id) || 0)) + 1).padStart(3, '0')
+    : '007';
+  const today = new Date().toISOString().slice(0, 10);
+
+  const prompt = PROMPT_TEMPLATE
+    .replace('{{NEXT_ID}}', nextId)
+    .replace('{{TODAY}}', today)
+    .replace('{{USER_TEXT}}', raw);
+
+  try {
+    const aiRes = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    const aiData = await aiRes.json();
+    const rawJson = aiData.content?.find(b => b.type === 'text')?.text || '';
+    const clean = rawJson.replace(/```json|```/g, '').trim();
+    const newEntry = JSON.parse(clean);
+
+    setStatus('Publicando en GitHub...');
+
+    const fileRes = await fetch(`https://api.github.com/repos/${repo}/contents/changelog.json`, {
+      headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' }
+    });
+
+    let sha = null;
+    let existing = [];
+
+    if (fileRes.ok) {
+      const fileData = await fileRes.json();
+      sha = fileData.sha;
+      existing = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, '')))));
+    }
+
+    const updatedEntries = [newEntry, ...existing];
+    const newContent = btoa(unescape(encodeURIComponent(JSON.stringify(updatedEntries, null, 2))));
+
+    const body = { message: `changelog: ${newEntry.title}`, content: newContent };
+    if (sha) body.sha = sha;
+
+    const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/changelog.json`, {
+      method: 'PUT',
+      headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    if (!putRes.ok) throw new Error('Error al publicar');
+
+    allEntries = updatedEntries;
+    buildFilters();
+    renderTimeline(activeFilter === 'all' ? allEntries : allEntries.filter(e => (e.categories||[]).includes(activeFilter)));
+    updateNavStats();
+    setStatus('¡Publicado!', 'ok');
+    document.getElementById('raw-input').value = '';
+    setTimeout(closeModal, 1200);
+
+  } catch (err) {
+    setStatus('Error: ' + err.message, 'error');
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+// ============================================================
+// COPY PROMPT
+// ============================================================
+function copyPrompt() {
+  const nextId = allEntries.length > 0
+    ? String(Math.max(...allEntries.map(e => parseInt(e.id) || 0)) + 1).padStart(3, '0')
+    : '007';
+  const today = new Date().toISOString().slice(0, 10);
+  const filled = PROMPT_TEMPLATE.replace('{{NEXT_ID}}', nextId).replace('{{TODAY}}', today).replace('{{USER_TEXT}}', '[PEGAR TU TEXTO ACÁ]');
+  navigator.clipboard.writeText(filled).then(() => {
+    const btn = event.target.closest('.btn');
+    const orig = btn.innerHTML;
+    btn.textContent = '¡Copiado!';
+    setTimeout(() => { btn.innerHTML = orig; }, 1500);
+  });
+}
+
+// ============================================================
+// NAV ACTIVE
+// ============================================================
+function setActive(el) {
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ============================================================
+// RUN
+// ============================================================
+init();
+</script>
+</body>
+</html>
