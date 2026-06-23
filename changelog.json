@@ -1,0 +1,226 @@
+[
+  {
+    "id": "001",
+    "date": "2026-01-15",
+    "title": "Onboarding con Intec/Leadworks y primer plan de proyecto",
+    "description": "Reunión de arranque con el equipo de Intec (agencia que iba a desarrollar el CRM sobre Active Campaign). Se define el plan en 4 pasos: organizar bases de datos, definir flujo de marketing, etapa de prueba y capacitaciones.",
+    "categories": ["crm", "estrategia"],
+    "steps": [
+      "Equipo Intec: Rosario (marketing/líder), Matías (operativo de AC), tercera persona a confirmar",
+      "Paso 1: limpiar y estructurar la base de datos propia antes de cualquier configuración",
+      "Definición pendiente: qué campos personalizados y listas se van a usar",
+      "Se identifica el problema de bases de datos muy extensas y de baja calidad (sube el costo del plan y baja la conversión)"
+    ],
+    "detail": null,
+    "note": "Esta etapa del proyecto se hizo sobre Active Campaign con la agencia Intec/Leadworks. El proyecto completo con esta agencia se descartó en abril/mayo a favor de Zoho CRM.",
+    "author": "Dani"
+  },
+  {
+    "id": "002",
+    "date": "2026-01-30",
+    "title": "Segundo inicio oficial del proyecto: limpieza de base de datos",
+    "description": "Se oficializa el inicio del proyecto con la presentación del equipo completo de Intec, tras recibir la base de datos corregida (división de nombres, limpieza de duplicados).",
+    "categories": ["estructura"],
+    "steps": [
+      "Primera presentación formal del plan de implementación detallado, agendada para la primera semana de febrero"
+    ],
+    "detail": null,
+    "note": null,
+    "author": "Dani"
+  },
+  {
+    "id": "003",
+    "date": "2026-02-13",
+    "title": "Relevamiento comercial: origen de leads y criterios de derivación",
+    "description": "Reunión de relevamiento con Romina (equipo funcional de Intec) para definir el flujo completo: cómo entra un lead, cómo se asigna a un ejecutivo y con qué criterio se deriva a cada unidad de negocio.",
+    "categories": ["crm", "estructura"],
+    "steps": [
+      "Orígenes de leads identificados: redes sociales, ingreso manual, campañas de Google, landings por unidad, chatbot a futuro",
+      "El origen del lead determina la automatización disparada y el embudo de ingreso",
+      "Definición: el lead entra primero al callcenter interno (asignación automática) y luego se deriva manualmente al ejecutivo de cuenta según lo que pide el cliente",
+      "El objetivo es que el callcenter avance lo más posible en la calificación antes de pasarlo al ejecutivo"
+    ],
+    "detail": null,
+    "note": "En este momento la derivación a embudos seguía siendo manual (no automatizada por IA o reglas).",
+    "author": "Dani / Romina"
+  },
+  {
+    "id": "004",
+    "date": "2026-03-13",
+    "title": "Alta de cuenta en Active Campaign",
+    "description": "Primeras configuraciones técnicas en la plataforma: listas, dominios y estructura base antes de empezar a cargar leads reales.",
+    "categories": ["crm"],
+    "steps": [],
+    "detail": null,
+    "note": null,
+    "author": "Dani"
+  },
+  {
+    "id": "005",
+    "date": "2026-03-20",
+    "title": "New Bag como unidad piloto y definición de próximos pasos",
+    "description": "Reunión con el equipo completo de Intec para definir New Bag como unidad de referencia: se arma su embudo primero y después se usa como modelo para las demás unidades de negocio.",
+    "categories": ["crm", "estructura"],
+    "steps": [
+      "Acuerdo: ser estrictos con los criterios de qué es etiqueta, qué es campo y qué es lista, con autorización centralizada para crearlos",
+      "Objetivo de la semana siguiente: que los leads de la web de New Bag entren directo a Active Campaign vía formularios",
+      "Pedido del director: integración con el backoffice (sistema propio en PHP) para no duplicar carga cuando una venta ya está prácticamente cerrada — Intec estima que es una porción menor de casos, el director corrige: es el 80% de los casos reales",
+      "Se identifica la necesidad de un contador de ventas por cuenta (se suma cada vez que un trato se marca como ganado) para detectar clientes recurrentes"
+    ],
+    "detail": "**Contexto:** reunión con Robert, Rosario, Romina y Dani (más equipo Intec) para definir el camino a seguir con New Bag como unidad piloto antes de extender a las demás unidades de negocio.\n\n**Punto de friction temprano:** el director planteó la necesidad de integrar el CRM con el backoffice en PHP para evitar duplicar tareas cuando una venta ya llega prácticamente cerrada (sin pasar por todo el embudo de calificación). El equipo de Intec no tenía esto contemplado en el alcance del proyecto y subestimó cuántos casos eran así — pensaban que eran pocos, cuando en la operación real eran la mayoría. Quedó anotado como requerimiento a investigar, pero es uno de los primeros indicios de que el alcance contratado no iba a cubrir lo que la operación necesitaba.\n\n**Definiciones técnicas:** se estableció que el origen de cada lead determina tanto la automatización que se dispara como el embudo de ingreso. También se acordó ser estrictos en la gobernanza de la base de datos: solo una o dos personas autorizadas para crear etiquetas, campos o listas nuevas, para evitar que la estructura se degrade con el tiempo.",
+    "note": null,
+    "author": "Dani / Roberto / Rosario / Romina"
+  },
+  {
+    "id": "006",
+    "date": "2026-04-10",
+    "title": "Primer uso real del sistema y arranque del proyecto de WhatsApp",
+    "description": "Se da de alta a los primeros usuarios reales (Nati, Mica) y se decide avanzar en paralelo con un segundo proyecto: el chatbot de WhatsApp, además del CRM.",
+    "categories": ["crm", "marketing"],
+    "steps": [
+      "El software de WhatsApp elegido (Hilos) tiene integración nativa con Active Campaign",
+      "Definición: una sola línea de WhatsApp, segmentada según asignación a ejecutivos y etiquetas",
+      "Advertencia de Intec sobre difusiones masivas por WhatsApp: usarlas con cuidado porque Meta puede banear el número",
+      "Se decide sumar D&G Merch a esta primera etapa del proyecto (originalmente iba a ser 100% New Bag primero)"
+    ],
+    "detail": "**Sobre el alcance de unidades:** Intec propuso trabajar con 3 unidades de negocio en lugar de 5 para el armado de campañas de marketing, ya que New Bag, Merch y Trade comparten audiencia y desde el punto de vista de comunicación son una sola. Los embudos de gestión individual de cada ejecutivo se mantenían en 5 de todas formas — la fusión era solo a nivel de segmentación de marketing, no de operación comercial.\n\n**Sobre WhatsApp:** se evaluaron dos propuestas comerciales en paralelo — una de Intec (configuración y desarrollo de flujos, con costo único de desarrollo más las plataformas de Hilos y Active Campaign a cargo del cliente) y otra de Leadworks (modelo de mejora continua mensual con soporte y nuevas automatizaciones). El director decidió avanzar con los dos proyectos —CRM y chatbot— en simultáneo, algo que normalmente se evita pero se aceptó como excepción dado el timing.",
+    "note": null,
+    "author": "Dani / Roberto"
+  },
+  {
+    "id": "007",
+    "date": "2026-04-22",
+    "title": "Workshop sin definiciones: primera señal de alerta con Intec",
+    "description": "Reunión presencial pensada para cerrar definiciones de campos, etiquetas y automatizaciones. No se llegó a ninguna conclusión concreta — el equipo de Intec no tenía respuestas claras y el proyecto empezó a mostrar señales de estancamiento.",
+    "categories": ["crm", "estrategia"],
+    "steps": [
+      "Se definió no activar automatizaciones nuevas hasta que el equipo se adapte al uso manual del CRM primero",
+      "Se relevaron las automatizaciones ya activas (seguimiento de leads por etapa, tareas y notificaciones automáticas)",
+      "Reunión paralela con Lemon (otro proveedor de chatbot) terminó en una disputa entre proveedores sobre quién debía desarrollar el bot, sin resolución clara"
+    ],
+    "detail": "**Nota del director sobre este workshop:** este encuentro marcó, en retrospectiva, el principio del fin de la relación con Intec para el desarrollo del CRM. No se definió nada concreto, el equipo de consultores no sabía responder preguntas operativas básicas, no había un hilo conductor claro de hacia dónde iba el proyecto, y la respuesta recurrente ante cualquier bloqueo era proponer sumar más horas de consultoría al presupuesto en lugar de resolver el problema de fondo.",
+    "note": "Este workshop es el primer quiebre visible en la relación con la agencia. A partir de acá empiezan los reclamos formales por mail.",
+    "author": "Dani"
+  },
+  {
+    "id": "008",
+    "date": "2026-04-24",
+    "title": "Reclamo formal a Intec: 8 puntos sin resolver",
+    "description": "Tras meses de demoras y respuestas poco claras, se envía un mail formal listando 8 problemas técnicos sin solución (rubros, campos de volumen de compra, ID de empresa, vínculo contacto-cuenta, revendedores, cliente activo, conexión de correo y origen). El intercambio se extiende por semanas con respuestas evasivas.",
+    "categories": ["crm", "estrategia"],
+    "steps": [
+      "Estructura de rubros y subrubros: Intec primero dice que está fuera de alcance, después lo implementa sin avisar",
+      "Campo ID Empresa: lo modifican mal y pierden la información ya cargada — crítico porque es el vínculo con el backoffice",
+      "Campo 'Otras empresas' (vínculo contacto-múltiples cuentas): la solución que proponen no refleja la relación real de la base (22 casos reales convertidos en opciones fijas para los 800 contactos)",
+      "Revendedores mayoristas: cambian de etiquetas a listas sin justificar el criterio técnico",
+      "Conexión de correo: nunca se había conectado realmente, a pesar de reportarse como activa",
+      "Campo Origen: confusión persistente sobre cuándo usar etiqueta vs. campo personalizado"
+    ],
+    "detail": "**Contexto:** después de semanas de intercambios de mail con respuestas ambiguas o contradictorias, se formaliza un reclamo estructurado en 8 puntos, todos ellos cambios o definiciones que ya se habían acordado verbalmente pero que no se implementaban correctamente o se implementaban sin comunicación previa.\n\n**Patrón identificado:** varios de estos puntos se resolvían unilateralmente por parte de Intec (sin consultar) y, cuando se les pedía la justificación técnica del criterio elegido, las respuestas eran vagas o contradictorias entre sí. El caso más grave fue el campo ID Empresa — el vínculo crítico con el sistema de backoffice propio — que se modificó mal y resultó en pérdida de información ya cargada.\n\n**Caso revendedores:** se necesitaba diferenciar revendedores mayoristas (que tienen cuenta propia) de sus clientes finales (cargados como cuentas independientes sin distinción de a qué revendedor pertenecían). La solución evolucionó de etiquetas a listas sin que quedara claro el criterio de cambio ni cómo se reflejaba el vínculo entre revendedor y cliente final.\n\n**Caso cliente activo / frecuencia de compra:** se pedía que la inactividad de un cliente se calculara según su frecuencia de compra particular (un cliente anual sigue activo a los 11 meses pero no a los 14), no con un plazo fijo igual para todos. La implementación inicial usó un criterio fijo sin consultar, y se tuvo que corregir.\n\nEste intercambio se extendió varias semanas (30/04, 06/05, 07/05) sin resolución completa de varios puntos, lo cual fue un factor central en la decisión posterior de discontinuar el proyecto con esta agencia.",
+    "note": "Intercambio extenso (varias semanas, múltiples respuestas cruzadas). Se resume el patrón general; el detalle punto por punto completo queda en el documento original de Notion si se necesita en el futuro.",
+    "author": "Dani"
+  },
+  {
+    "id": "009",
+    "date": "2026-05-08",
+    "title": "Llamada de seguimiento: se reconocen los problemas pero no se resuelven",
+    "description": "Llamada con Rosario (Leadworks/Intec) tras el reclamo formal. Reconoce que hubo ruido por el volumen de gente en las reuniones iniciales y que asumieron cosas cerradas que no lo estaban. Se acuerda un flujograma nuevo para la próxima reunión.",
+    "categories": ["crm", "estrategia"],
+    "steps": [
+      "Se reconoce que el problema de ecommerce/carrito de compras no estaba contemplado en la propuesta original y requería una arquitectura distinta a la elegida",
+      "Se aclara el criterio técnico de etiqueta vs. campo vs. lista: campo es dato fijo e histórico (ej. origen), etiqueta es dato dinámico (ej. estado del cliente), lista es para comunicaciones diferenciadas",
+      "Próxima reunión agendada para la semana del 12 de mayo, con flujograma actualizado para validar y cerrar definiciones"
+    ],
+    "detail": null,
+    "note": null,
+    "author": "Dani / Rosario"
+  },
+  {
+    "id": "010",
+    "date": "2026-05-13",
+    "title": "Última reunión con Intec antes del cambio a Zoho",
+    "description": "Reunión de cierre de varios temas pendientes (otras empresas, revendedores, frecuencia de compra, conexión de correo, calificación de leads). El SDR se define como rol que trabaja por actividades, sin pipeline propio visible. Cinco días después se decide pasar a Zoho.",
+    "categories": ["crm", "estructura"],
+    "steps": [
+      "Se define que el SDR trabaja con campos personalizados y actividades en el módulo de Leads, sin pipeline visual propio — los embudos quedan reservados para los ejecutivos de cuenta",
+      "Campo 'Otras empresas': se acuerda implementarlo como texto libre a nivel cuenta, como solución temporal",
+      "Revendedores: se define usar el campo de rubro para identificarlos, con un campo adicional de 'revendedor asignado' a nivel cuenta para sus clientes",
+      "Frecuencia de compra: se agrega la opción 'esporádico' como valor por defecto, obligatorio completar al dar de alta un cliente",
+      "Sobre WhatsApp: se decide no avanzar todavía — primero hay que terminar de relevar y estructurar las 4 unidades de negocio que faltan, para no generar un quilombo agregando una capa más sobre una base aún incompleta"
+    ],
+    "detail": "**Sobre el rol del SDR:** se evaluaron dos opciones. La opción A (el SDR trabaja solo en el módulo de Leads, sin pipeline visual, usando campos personalizados y actividades) y la opción B (el SDR tiene su propio pipeline de tratos en etapas tempranas). Se optó por un híbrido inclinado hacia la opción A: el SDR usa actividades y campos personalizados bien definidos, con un estado de lead que funciona como su propio embudo aunque no sea un pipeline visual clásico. Esto mantiene limpio el pipeline de los ejecutivos de cuenta y da métricas separadas del trabajo del SDR.\n\n**Por qué no se avanza con WhatsApp todavía:** la pregunta de Romina fue directa — cuál era el plan para avanzar con WhatsApp. La respuesta fue que sin la infraestructura de las 4 unidades de negocio restantes bien armada, agregar la capa de WhatsApp iba a generar un desorden mayor. El plan pasó a ser: relevar primero esas unidades (estructurar bases de datos, procesos y campos necesarios), recién después avanzar con WhatsApp.\n\nEsta fue la última reunión sustancial con el equipo de Intec/Leadworks antes de la decisión de pasar a Zoho CRM, tomada cinco días después.",
+    "note": null,
+    "author": "Dani / Romina / Rosario"
+  },
+  {
+    "id": "011",
+    "date": "2026-05-18",
+    "title": "Se decide discontinuar Active Campaign y pasar a Zoho CRM",
+    "description": "Tras meses de demoras, respuestas técnicas contradictorias y un alcance de proyecto que no terminaba de cubrir las necesidades reales del negocio, se decide dejar de trabajar con Intec/Leadworks y migrar la implementación del CRM a Zoho.",
+    "categories": ["crm", "estrategia"],
+    "steps": [
+      "Se da de alta Zoho CRM como nueva plataforma",
+      "Se cierra la relación de desarrollo con Intec para el armado del CRM"
+    ],
+    "detail": null,
+    "note": "Decisión clave del proyecto: cambio de plataforma completo después de 4 meses de trabajo con Active Campaign.",
+    "author": "Dani / Roberto"
+  },
+  {
+    "id": "012",
+    "date": "2026-05-29",
+    "title": "Primeros usuarios y pruebas en Zoho",
+    "description": "Se dan de alta los primeros 3 usuarios en Zoho (Callcenter, Dani y Eric) y se hacen las primeras pruebas de automatizaciones y derivaciones, ya con la nueva plataforma.",
+    "categories": ["crm"],
+    "steps": [],
+    "detail": null,
+    "note": null,
+    "author": "Dani"
+  },
+  {
+    "id": "013",
+    "date": "2026-06-04",
+    "title": "Baja formal de Active Campaign y primer onboarding en Zoho",
+    "description": "El director comunica formalmente a Rosario (Intec) que no van a continuar con ellos. Se hace el primer onboarding general a ejecutivos y callcenter sobre el funcionamiento del nuevo CRM.",
+    "categories": ["crm", "estrategia"],
+    "steps": [
+      "03.06 — Alta de 6 usuarios nuevos en Zoho CRM",
+      "08.06 — Se dan de baja todos los usuarios y cuentas adicionales de Active Campaign"
+    ],
+    "detail": null,
+    "note": null,
+    "author": "Roberto / Dani"
+  },
+  {
+    "id": "014",
+    "date": "2026-06-12",
+    "title": "Integración email: se define IMAP como protocolo",
+    "description": "Se configura la integración del servidor de correo con Zoho CRM usando IMAP para permitir sincronización bidireccional entre Outlook y el CRM.",
+    "categories": ["crm", "integraciones"],
+    "steps": [
+      "IMAP elegido sobre POP3 por sincronización en tiempo real",
+      "POP3 descartado: borra del servidor y rompe la visibilidad multi-dispositivo",
+      "Condición: el mail de Outlook tiene que salir desde la misma cuenta configurada en Zoho",
+      "Configurar qué carpetas están habilitadas para sync (Enviados incluido)"
+    ],
+    "detail": "**Decisión:** Configuración del protocolo de correo electrónico para la integración con Zoho CRM\n\nSe decidió usar IMAP (en lugar de POP3) para la integración del servidor de correo electrónico con Zoho CRM, por las siguientes razones:\n\n1. **Sincronización en tiempo real entre todos los dispositivos.** IMAP mantiene el servidor como fuente única de verdad: cualquier acción realizada desde Zoho, Outlook, webmail o el celular se refleja de manera consistente en todos los puntos de acceso. POP3 está diseñado para un único dispositivo y no garantiza esta coherencia.\n\n2. **Necesidad de Zoho CRM de acceder al historial completo de correos.** Zoho requiere ver los mensajes alojados en el servidor para poder asociarlos automáticamente a los contactos, leads y oportunidades correspondientes. Bajo POP3, los correos suelen descargarse y eliminarse del servidor, lo que impediría que el CRM acceda a ellos.\n\n3. **Trazabilidad de la comunicación comercial.** Al utilizar IMAP, los correos enviados desde otros clientes de correo (por ejemplo, Outlook de escritorio) en respuesta a una cadena iniciada desde Zoho también se sincronizan con el CRM, manteniendo el historial de la conversación completo y centralizado.\n\n4. **Escalabilidad del equipo comercial.** A medida que más usuarios o dispositivos se sumen a la gestión de las cuentas de correo, IMAP evita la fragmentación de información que generaría POP3, donde cada dispositivo podría tener una copia distinta y desactualizada de la bandeja.\n\n**Conclusión:** IMAP es el protocolo que garantiza la integridad, disponibilidad y trazabilidad de las comunicaciones por correo electrónico requeridas para el funcionamiento del CRM.",
+    "note": null,
+    "author": "Dani"
+  },
+  {
+    "id": "015",
+    "date": "2026-06-19",
+    "title": "Criterios de conversión de lead a cliente y manual de uso para ejecutivos",
+    "description": "Se documenta formalmente cuándo un Posible Cliente se convierte en Cuenta + Contacto + Trato, y se actualiza la wiki con la guía operativa para ejecutivos de cuenta.",
+    "categories": ["crm", "estructura"],
+    "steps": [
+      "Posible Cliente → Cliente: se convierte cuando confirma intención de compra real (en general, al pedir cotización), no cuando ya compró",
+      "Al convertir se crean automáticamente Cuenta + Contacto + Trato — momento clave para verificar que los datos obligatorios estén completos",
+      "Regla general: todos los clientes y pedidos pasan por el CRM antes de entrar a Backoffice; al cerrar un trato se actualiza el ID correspondiente en ambos sistemas",
+      "Empresas duplicadas: si la cuenta ya existe, se vincula el contacto a la existente en vez de crear una nueva"
+    ],
+    "detail": "**Definición de criterio de conversión (Lead → Cliente):**\n\nUn Lead o Posible Cliente es alguien sobre quien se tiene información mínima y cuya intención de compra todavía no está validada — puede haber llenado un formulario, escrito preguntando vagamente, o haberse conseguido en una feria.\n\nLa conversión a Contacto + Cuenta + Trato ocurre cuando ese lead ya está calificado: se confirmó que tiene intención real, presupuesto, y es la persona o empresa correcta. El momento exacto de esa conversión es cuando pide cotización, precio, cantidad o condiciones — esa es la señal de intención concreta. No hace falta esperar a que compre para convertirlo: la conversión marca que pasó el filtro de calificación, no que ya es cliente. El trato puede perfectamente arrancar en etapa \"Cotización enviada\" o \"Negociación\".\n\nCuándo es cliente de verdad ya depende del proceso de cada unidad, pero lo usual es cuando acepta la propuesta, hace el primer pago, o se le emite la primera factura — ese momento se refleja como trato en \"Cerrado ganado\", y ahí la Cuenta pasa a ser cliente activo en el sentido comercial pleno.",
+    "note": null,
+    "author": "Dani"
+  }
+]
